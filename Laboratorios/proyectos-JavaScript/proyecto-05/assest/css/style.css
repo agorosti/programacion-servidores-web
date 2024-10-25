@@ -1,0 +1,105 @@
+/* */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(to right, #053476, #acb6e5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+input {
+  padding: 12px 15px;
+  width: 350px;
+  border-radius: 30px;
+  border: none;
+  font-size: 18px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.suggestions {
+  border: 1px solid #ccc;
+  max-height: 150px;
+  width: 350px;
+  background-color: white;
+  margin-top: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+}
+
+.suggestion-item:hover {
+  background-color: #4e7dec;
+  color: #fff;
+}
+
+.suggestion-item:active {
+  background-color: #dcdcdc;
+}
+
+.suggestions p {
+  margin: 0;
+  padding: 10px;
+  color: #999;
+}
+
+.weather-info {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  width: 350px;
+  display: none;
+}
+
+.weather-info h3 {
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.weather-info p {
+  margin: 5px 0;
+  color: #555;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 30px;
+  background-color: #4e7dec;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #3967b8;
+}

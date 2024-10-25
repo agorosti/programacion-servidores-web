@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proyecto 03 JS</title>
+    <link rel="stylesheet" href="assest/css/style.css" />
+  </head>
+  <body>
+    <h2>Formulario de Registro</h2>
+    <form id="registrationForm">
+      <div>
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" required />
+        <div class="error-message" id="nameError"></div>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" required />
+        <div class="error-message" id="emailError"></div>
+      </div>
+      <div>
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" required minlength="6" />
+        <div class="error-message" id="emailError"></div>
+      </div>
+      <button type="submit">Enviar</button>
+    </form>
+
+    <script src="assest/js/main.js"></script>
+  </body>
+</html>
