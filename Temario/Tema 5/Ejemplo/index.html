@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio de Avatares</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .user-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+    .user {
+      text-align: center;
+      transition: opacity 0.5s;
+    }
+    .user img {
+      border-radius: 80%;
+      width: 100px;
+      height: 100px;
+    }
+    .inactive {
+      opacity: 0.4;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Selecciona un usuario para activar/inactivar</h1>
+
+  <div class="user-container" id="user-container">
+    <!-- Aquí se insertarán los usuarios dinámicamente -->
+  </div>
+
+  <script>
+    // Llamada a la API pública
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(data => {
+        // Tomar solo los primeros 4 usuarios
+        const users = data.slice(0, 8);
+
+        users.forEach(user => {
+          const avatarUrl = `https://i.pravatar.cc/150?img=${user.id}`; // API para obtener avatares aleatorios
+          $('#user-container').append(`
+            <div class="user" data-id="${user.id}">
+              <img src="${avatarUrl}" alt="${user.name}">
+              <p>${user.name}</p>
+            </div>
+          `);
+        });
+
+        // Añadir el evento click con jQuery para alternar la opacidad
+        $('.user').on('click', function() {
+          $(this).toggleClass('inactive');
+        });
+      });
+  </script>
+
+</body>
+</html>
