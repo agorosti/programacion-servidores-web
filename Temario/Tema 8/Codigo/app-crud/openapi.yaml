@@ -1,0 +1,110 @@
+openapi: 3.0.0
+info:
+  title: API de Ejemplo de Ítems
+  description: API para gestionar ítems en memoria (CRUD).
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+paths:
+  /items:
+    post:
+      summary: Crear un nuevo ítem
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: "Nuevo Ítem"
+      responses:
+        '201':
+          description: Ítem creado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+    get:
+      summary: Leer todos los ítems
+      responses:
+        '200':
+          description: Lista de ítems
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Item'
+  /items/{id}:
+    get:
+      summary: Leer un ítem por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Ítem encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+        '404':
+          description: Ítem no encontrado
+    put:
+      summary: Actualizar un ítem por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: "Ítem actualizado"
+      responses:
+        '200':
+          description: Ítem actualizado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+        '404':
+          description: Ítem no encontrado
+    delete:
+      summary: Eliminar un ítem por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Ítem eliminado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+        '404':
+          description: Ítem no encontrado
+components:
+  schemas:
+    Item:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string

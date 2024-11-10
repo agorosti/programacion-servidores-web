@@ -4,7 +4,7 @@ const app = express();
 
 // Definir una ruta GET para la raíz "/"
 app.get("/", (req, res) => {
-  res.send("Hola Mundo");
+  res.send("Hola <strong>Mundo</strong> cruel!");
 });
 
 // Definir una ruta GET para "/about"
